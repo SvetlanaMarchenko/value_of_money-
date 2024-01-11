@@ -1,8 +1,18 @@
 import React from 'react';
 import { Button, Container, Row, Col } from 'react-bootstrap';
+import NavbarComponent from './NavbarComponent';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
 
 import logo from './logo.svg';
+import kuva from './earth.png';
 import './App.css';
+
+const Home = () => <h2>Home Page</h2>;
+const About = () => <h2>About Page</h2>;
+const Contact = () => <h2>Contact Page</h2>;
+
 
 const MyGridComponent = () => {
   return (
@@ -30,10 +40,21 @@ const MyComponent = () => {
   );
 };
 
+
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
+      <Router>
+        <div>
+          <NavbarComponent />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+      </Router>
+      <header className="App-header" style={{ backgroundImage: `url(${kuva})` }}>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -50,6 +71,8 @@ const App = () => {
         <MyComponent />
       </header>
     </div>
+
+    
   );
 };
 
