@@ -9,8 +9,8 @@ import logo from './logo.svg';
 import kuva from './earth.png';
 import './App.css';
 
-const Home = () => <h2>Home Page</h2>;
-const About = () => <h2>About Page</h2>;
+const Home = () => <h2></h2>;
+const Resource = () => <h2>Resource</h2>;
 const Contact = () => <h2>Contact Page</h2>;
 
 
@@ -44,17 +44,17 @@ const MyComponent = () => {
 const App = () => {
   return (
     <div className="App">
+      <header className="App-header" style={{ backgroundImage: `url(${kuva})` }}>
       <Router>
         <div>
           <NavbarComponent />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/resource" element={<Resource />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-        </div>
+          </div>
       </Router>
-      <header className="App-header" style={{ backgroundImage: `url(${kuva})` }}>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.

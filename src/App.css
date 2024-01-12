@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.custom_navbar{
+  width: 700px;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 0 auto;
+  margin: 0 auto;
+  height: 43px;
+  ;
+}
+
+.nav_part {
+  width: 200px;
+  text-align: center;
+  height: 43px;
+  margin-bottom: 0;
+}
+
