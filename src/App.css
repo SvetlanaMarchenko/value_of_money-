@@ -52,6 +52,22 @@
   width: 200px;
   text-align: center;
   height: 43px;
-  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
 }
 
+
+.btn-outline-primary {
+  color: #007bff; /* цвет текста */
+  background-color: transparent; /* прозрачный фон */
+  border-color: #007bff; /* цвет границы */
+  width: 100px;
+}
+
+.btn-outline-primary:hover {
+  color: #fff; /* цвет текста при наведении */
+  background-color: #007bff; /* фон при наведении */
+  border-color: #007bff; /* цвет границы при наведении */
+  width: 100px;
+}

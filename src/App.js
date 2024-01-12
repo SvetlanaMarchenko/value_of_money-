@@ -1,18 +1,15 @@
-import React from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Container, Row, Col, ButtonGroup } from 'react-bootstrap';
 import NavbarComponent from './NavbarComponent';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-
 
 import logo from './logo.svg';
 import kuva from './earth.png';
 import './App.css';
 
-const Home = () => <h2></h2>;
+const Home = () => <h2>Home Page</h2>; // Добавил текст для компонента Home
 const Resource = () => <h2>Resource</h2>;
 const Contact = () => <h2>Contact Page</h2>;
-
 
 const MyGridComponent = () => {
   return (
@@ -40,45 +37,58 @@ const MyComponent = () => {
   );
 };
 
-
 const App = () => {
+  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
+
+  const handleCurrencyChange = (currency) => {
+    setSelectedCurrency(currency);
+  };
+
   return (
     <div className="App">
-      <header className="App-header" style={{ backgroundImage: `url(${kuva})` }}>
       <Router>
-        <div>
+        <header className="App-header" style={{ backgroundImage: `url(${kuva})` }}>
           <NavbarComponent />
           <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/" element={<Home />} />
             <Route path="/resource" element={<Resource />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-          </div>
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <ButtonGroup>
+            <Button
+              variant={selectedCurrency === 'EUR' ? 'outline-primary' : 'primary'}
+              onClick={() => handleCurrencyChange('EUR')}>
+              EUR
+            </Button>
+            <Button
+              variant={selectedCurrency === 'USD' ? 'outline-primary' : 'primary'}
+              onClick={() => handleCurrencyChange('USD')}>
+              USD
+            </Button>
+            <Button
+              variant={selectedCurrency === 'RUB' ? 'outline-primary' : 'primary'}
+              onClick={() => handleCurrencyChange('RUB')}>
+              RUB
+            </Button>
+          </ButtonGroup>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+          <MyGridComponent />
+          <MyComponent />
+        </header>
       </Router>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <MyGridComponent />
-        <MyComponent />
-      </header>
     </div>
-
-    
   );
 };
 
-
-
-
-
 export default App;
-
