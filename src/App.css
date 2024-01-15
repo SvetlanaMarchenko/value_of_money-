@@ -58,16 +58,30 @@
 }
 
 
-.btn-outline-primary {
+.btn_outline_primary {
   color: #007bff; /* цвет текста */
   background-color: transparent; /* прозрачный фон */
   border-color: #007bff; /* цвет границы */
-  width: 100px;
+  
 }
 
-.btn-outline-primary:hover {
+.btn_outline_primary:hover {
   color: #fff; /* цвет текста при наведении */
-  background-color: #007bff; /* фон при наведении */
+  background-color: transparent; /* фон при наведении */
   border-color: #007bff; /* цвет границы при наведении */
-  width: 100px;
+}
+
+.ButtonGroup {
+  margin-top: 40px;
+}
+
+.blue_box {
+  background-color: #122faa;
+  background: linear-gradient(to bottom right, #0057B8, #234161);
+  /* background: radial-gradient(425.02px at 50% 50%, #0057B8 0%, #234161 100%) */
+  width: 400px;
+  height: 540px ;
+  margin-top: 20px;
+  border-radius: 20px;
+
 }

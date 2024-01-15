@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Container, Row, Col, ButtonGroup } from 'react-bootstrap';
+import { Button, Container, Row, Col, ButtonGroup, FormControl } from 'react-bootstrap';
 import NavbarComponent from './NavbarComponent';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -22,20 +22,53 @@ const MyGridComponent = () => {
   );
 };
 
-const MyComponent = () => {
+// const year_Component = () => {
+//   const [year, setYear] = useState('');
+
+//   const handleYearChange = (event) => {
+//     setYear(event.target.value);
+//   };
+
+//   return (
+//     <Container>
+//       <Row>
+//         <Col>
+//           {/* Простое поле ввода для года */}
+//           <FormControl
+//             type="number"
+//             placeholder="Enter Year"
+//             value={year}
+//             onChange={handleYearChange}
+//           />
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// };
+
+// const MyComponent = () => {
+//   return (
+//     <Container>
+//       <Row>
+//         <Col>
+//           <Button variant="primary">Primary Button</Button>
+//         </Col>
+//         <Col>
+//           <Button variant="secondary">Secondary Button</Button>
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// };
+
+const BlueBox = ({ children }) => {
   return (
-    <Container>
-      <Row>
-        <Col>
-          <Button variant="primary">Primary Button</Button>
-        </Col>
-        <Col>
-          <Button variant="secondary">Secondary Button</Button>
-        </Col>
-      </Row>
-    </Container>
+    <div className="blue_box">
+      {children}
+    </div>
   );
 };
+
 
 const App = () => {
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
@@ -46,6 +79,7 @@ const App = () => {
 
   return (
     <div className="App">
+      
       <Router>
         <header className="App-header" style={{ backgroundImage: `url(${kuva})` }}>
           <NavbarComponent />
@@ -54,27 +88,34 @@ const App = () => {
             <Route path="/resource" element={<Resource />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
+          <BlueBox>
+            <ButtonGroup className="ButtonGroup" >
+              <Button
+                variant={selectedCurrency === 'EUR' ? 'outline-primary' : 'primary'}
+                onClick={() => handleCurrencyChange('EUR')}>
+                EUR
+              </Button>
+              <Button
+                variant={selectedCurrency === 'USD' ? 'outline-primary' : 'primary'}
+                onClick={() => handleCurrencyChange('USD')}>
+                USD
+              </Button>
+              <Button
+                variant={selectedCurrency === 'RUB' ? 'outline-primary' : 'primary'}
+                onClick={() => handleCurrencyChange('RUB')}>
+                RUB
+              </Button>
+            </ButtonGroup>
+            <year_Component />
+
+            
+          </BlueBox>
+
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <ButtonGroup>
-            <Button
-              variant={selectedCurrency === 'EUR' ? 'outline-primary' : 'primary'}
-              onClick={() => handleCurrencyChange('EUR')}>
-              EUR
-            </Button>
-            <Button
-              variant={selectedCurrency === 'USD' ? 'outline-primary' : 'primary'}
-              onClick={() => handleCurrencyChange('USD')}>
-              USD
-            </Button>
-            <Button
-              variant={selectedCurrency === 'RUB' ? 'outline-primary' : 'primary'}
-              onClick={() => handleCurrencyChange('RUB')}>
-              RUB
-            </Button>
-          </ButtonGroup>
+          
           <a
             className="App-link"
             href="https://reactjs.org"
@@ -84,7 +125,8 @@ const App = () => {
             Learn React
           </a>
           <MyGridComponent />
-          <MyComponent />
+          
+  
         </header>
       </Router>
     </div>
