@@ -67,7 +67,7 @@
 
 .btn_outline_primary:hover {
   color: #fff; /* цвет текста при наведении */
-  background-color: transparent; /* фон при наведении */
+  background-color: f0f8ff; /* фон при наведении */
   border-color: #007bff; /* цвет границы при наведении */
 }
 
@@ -83,5 +83,14 @@
   height: 540px ;
   margin-top: 20px;
   border-radius: 20px;
+}
 
+.info_form{
+  margin: 40px 0 0 40px;
+  width: 300px;
+  
+}
+
+.flex-item{
+  background-color: #f0f8ff;
 }

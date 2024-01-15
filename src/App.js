@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { Button, Container, Row, Col, ButtonGroup, FormControl } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import NavbarComponent from './NavbarComponent';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MainInfoForm from './MainInfoForm';
+import CurrencySelector from './buttonGroup';
 
 import logo from './logo.svg';
 import kuva from './earth.png';
@@ -22,29 +24,6 @@ const MyGridComponent = () => {
   );
 };
 
-// const year_Component = () => {
-//   const [year, setYear] = useState('');
-
-//   const handleYearChange = (event) => {
-//     setYear(event.target.value);
-//   };
-
-//   return (
-//     <Container>
-//       <Row>
-//         <Col>
-//           {/* Простое поле ввода для года */}
-//           <FormControl
-//             type="number"
-//             placeholder="Enter Year"
-//             value={year}
-//             onChange={handleYearChange}
-//           />
-//         </Col>
-//       </Row>
-//     </Container>
-//   );
-// };
 
 // const MyComponent = () => {
 //   return (
@@ -71,11 +50,6 @@ const BlueBox = ({ children }) => {
 
 
 const App = () => {
-  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
-
-  const handleCurrencyChange = (currency) => {
-    setSelectedCurrency(currency);
-  };
 
   return (
     <div className="App">
@@ -89,26 +63,8 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <BlueBox>
-            <ButtonGroup className="ButtonGroup" >
-              <Button
-                variant={selectedCurrency === 'EUR' ? 'outline-primary' : 'primary'}
-                onClick={() => handleCurrencyChange('EUR')}>
-                EUR
-              </Button>
-              <Button
-                variant={selectedCurrency === 'USD' ? 'outline-primary' : 'primary'}
-                onClick={() => handleCurrencyChange('USD')}>
-                USD
-              </Button>
-              <Button
-                variant={selectedCurrency === 'RUB' ? 'outline-primary' : 'primary'}
-                onClick={() => handleCurrencyChange('RUB')}>
-                RUB
-              </Button>
-            </ButtonGroup>
-            <year_Component />
-
-            
+            <CurrencySelector/>
+            <MainInfoForm/>
           </BlueBox>
 
           <img src={logo} className="App-logo" alt="logo" />
