@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import NavbarComponent from './NavbarComponent';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainInfoForm from './MainInfoForm';
+import UniversalCalculator from './universalCalculator';
 import CurrencySelector from './buttonGroup';
 import kuva from './earth.png';
 import './App.css';
@@ -23,21 +24,6 @@ const MyGridComponent = () => {
 };
 
 
-// const MyComponent = () => {
-//   return (
-//     <Container>
-//       <Row>
-//         <Col>
-//           <Button variant="primary">Primary Button</Button>
-//         </Col>
-//         <Col>
-//           <Button variant="secondary">Secondary Button</Button>
-//         </Col>
-//       </Row>
-//     </Container>
-//   );
-// };
-
 const BlueBox = ({ children }) => {
   return (
     <div className="blue_box">
@@ -48,6 +34,7 @@ const BlueBox = ({ children }) => {
 
 
 const App = () => {
+
 
   return (
     <div className="App">
@@ -66,8 +53,10 @@ const App = () => {
             <CurrencySelector/>
             <MainInfoForm/>
             <Button className='btn_clear'>Clear</Button>
+
           </BlueBox>
           <MyGridComponent />
+
           
           
   
