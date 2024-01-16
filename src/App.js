@@ -1,11 +1,9 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import NavbarComponent from './NavbarComponent';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainInfoForm from './MainInfoForm';
 import CurrencySelector from './buttonGroup';
-
-import logo from './logo.svg';
 import kuva from './earth.png';
 import './App.css';
 
@@ -54,6 +52,7 @@ const App = () => {
   return (
     <div className="App">
       
+  
       <Router>
         <header className="App-header" style={{ backgroundImage: `url(${kuva})` }}>
           <NavbarComponent />
@@ -63,24 +62,13 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <BlueBox>
+            <h1>Value of money now</h1>
             <CurrencySelector/>
             <MainInfoForm/>
+            <Button className='btn_clear'>Clear</Button>
           </BlueBox>
-
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
           <MyGridComponent />
+          
           
   
         </header>

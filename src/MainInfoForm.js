@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { Container, Row, Col, FormControl } from 'react-bootstrap';
 
@@ -9,7 +7,7 @@ const MainInfoForm = () => {
   const [formData, setFormData] = useState({
     year: '',
     sum: '',
-    currency: '',
+    result: '',
   });
 
   const handleInputChange = (field, value) => {
@@ -22,12 +20,11 @@ const MainInfoForm = () => {
   return (
     <Container >
       <Row className="info_form">
-        {/* Создаем несколько полей ввода */}
         <Col>
           <FormControl className="flex-item"
             type="number"
             placeholder="Enter Year"
-            value={formData.year}
+            // value={formData.year}
             onChange={(e) => handleInputChange('year', e.target.value)}
           />
         </Col>
@@ -37,7 +34,7 @@ const MainInfoForm = () => {
           <FormControl
             type="number"
             placeholder="Enter Sum"
-            value={formData.sum}
+            // value={formData.sum}
             onChange={(e) => handleInputChange('sum', e.target.value)}
           />
         </Col>
@@ -45,10 +42,7 @@ const MainInfoForm = () => {
       <Row className="info_form">
         <Col>
           <FormControl
-            type="text"
-            placeholder="Enter Currency"
-            value={formData.currency}
-            onChange={(e) => handleInputChange('currency', e.target.value)}
+          placeholder="Get result"
           />
         </Col>
       </Row>
