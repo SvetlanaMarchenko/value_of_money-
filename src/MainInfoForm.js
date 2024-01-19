@@ -30,6 +30,7 @@ const MainInfoForm = () => {
     { year: 2022, inflation: 2 },
     { year: 2023, inflation: 4 },
   ];
+  
 
   return (
     <Container>
