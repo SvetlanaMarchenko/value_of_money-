@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, FormControl } from 'react-bootstrap';
-import UniversalCalculator from './universalCalculator';
+import UniversalCalculator from './universalCalculator.js';
 
 import './App.css';
 
@@ -71,7 +71,7 @@ const MainInfoForm = () => {
             year={parseInt(formData.year)}
             sum={parseFloat(formData.sum)}
             inflationData={myInflationDataArray}
-            onResultChange={handleResultChange}
+            onResultCalculated={handleResultChange}
           />
         </Col>
       </Row>

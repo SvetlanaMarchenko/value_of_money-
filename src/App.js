@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import NavbarComponent from './NavbarComponent';
+import NavbarComponent from './NavbarComponent.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import MainInfoForm from './MainInfoForm';
-import UniversalCalculator from './universalCalculator';
-import CurrencySelector from './buttonGroup';
+import MainInfoForm from './MainInfoForm.js';
+import UniversalCalculator from './universalCalculator.js';
+import CurrencySelector from './buttonGroup.js';
 import kuva from './earth.png';
 import './App.css';
 
