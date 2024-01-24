@@ -18,11 +18,17 @@ const MainInfoForm = () => {
     });
   };
 
+  // const handleResultChange = (result) => {
+  //   setFormData({
+  //     ...formData,
+  //     result: result.toFixed(2), // Округляем результат до двух знаков после запятой
+  //   });
+  // };
+
   const handleResultChange = (result) => {
-    setFormData({
-      ...formData,
-      result: result.toFixed(2), // Округляем результат до двух знаков после запятой
-    });
+    const formattedResult = result.toFixed(2);
+    // Ваша логика обработки результата
+    console.log(formattedResult);
   };
 
   const myInflationDataArray = [

@@ -3,14 +3,14 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import NavbarComponent from './NavbarComponent.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainInfoForm from './MainInfoForm.js';
-import UniversalCalculator from './universalCalculator.js';
 import CurrencySelector from './buttonGroup.js';
 import kuva from './earth.png';
+import ContactInfo from './contactInfo.js';
 import './App.css';
 
 const Home = () => <h2>Home Page</h2>; // Добавил текст для компонента Home
 const Resource = () => <h2>Resource</h2>;
-const Contact = () => <h2>Contact Page</h2>;
+// const Contact = () => <h2>Contact Page</h2>;
 
 const MyGridComponent = () => {
   return (
@@ -34,8 +34,6 @@ const BlueBox = ({ children }) => {
 
 
 const App = () => {
-
-
   return (
     <div className="App">
       
@@ -46,7 +44,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/resource" element={<Resource />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<ContactInfo />} />
           </Routes>
           <BlueBox>
             <h1>Value of money now</h1>
