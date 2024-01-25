@@ -85,7 +85,6 @@
 .blue_box {
   background-color: rgb(24,53,93);
   background: linear-gradient(to bottom right, rgb(65,169,207), rgb(24,53,93));
-  /* background: radial-gradient(425.02px at 50% 50%, #0057B8 0%, #234161 100%) */
   width: 400px;
   height: 500px ;
   margin-top: 20px;
@@ -108,4 +107,8 @@ h1{
 
 .btn_clear{
   margin-top: 40px;
+}
+
+.blue_background{
+  background-color: #f0f8ff;
 }
