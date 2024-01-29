@@ -12,10 +12,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-/* .backgroundImage{
-  direction: center;
-  justify-content: center;
-} */
 
 .App-header {
   background-color: #282c34;
@@ -113,3 +109,16 @@ h1{
 .blue_background{
   background-color: #f0f8ff;
 }
+
+
+.name_diraction {
+  font-family: Avenir Next;
+}
+
+.center-line {
+  width: 1px;
+  height: 100%;
+  background-color: #000; /* цвет линии */
+  margin: 0 auto;
+}
+
