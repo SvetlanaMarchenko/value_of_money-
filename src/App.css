@@ -14,17 +14,15 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-size: cover; /* This property ensures the image covers the entire container */
+  background-position: center; /* Center the image within the container */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  /* justify-content: center; */
-  font-size: calc(10px + 2vmin);
-  color: white;
-  
 }
+
 
 .App-link {
   color: #61dafb;
@@ -47,8 +45,7 @@
   padding: 0 auto;
   margin: 40px auto 0; 
   height: 43px;
-
-  ;
+  font-size: calc(10px + 2vmin);
 }
 
 .nav_part {
@@ -98,9 +95,10 @@
   background-color: #f0f8ff;
 }
 
-h1{
-  margin-top: 20px;
-}
+/* h1{
+  margin: 20px 0 0 40px;
+  
+} */
 
 .btn_clear{
   margin-top: 40px;
@@ -111,14 +109,51 @@ h1{
 }
 
 
-.name_diraction {
-  font-family: Avenir Next;
-}
-
 .center-line {
-  width: 1px;
+  width: 2px;
   height: 100%;
   background-color: #000; /* цвет линии */
-  margin: 0 auto;
+  margin-left: 300px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  font-family: 'Avenir Next', sans-serif;
+  color: black;
+  text-align: right;
+  text-shadow: #000;
+  position: relative;
+}
+
+.image-popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translateX(10px);
+}
+
+.center-line:hover .image-popup {
+  display: block;
+}
+
+.introducing{
+  font-family: 'Avenir Next', sans-serif;
+  color: orangered;
+  text-transform: uppercase;
+  margin:30px 0 0 300px;
+  display: flex;
+  align-content: space-around;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.name_direction{
+  margin: 40px 0  37px 300px; 
+  font-family: 'Avenir Next', sans-serif;
+  color: black;
+  text-shadow: #000;
+  text-align: left;
+
 }
 
