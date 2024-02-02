@@ -33,7 +33,13 @@ const AppContent = () => {
               </BlueBox>
             </>
           } />
-          <Route path="/resource" element={<h2>Resource</h2>} />
+          <Route path="/resource" element={
+            <>
+              <BlueBox>
+                <h1>Resource</h1>
+              </BlueBox>
+            </>
+          }/>
           <Route path="/contact" element={<ContactInfo />} />
         </Routes>
       </header>
