@@ -6,6 +6,7 @@ import CurrencySelector from './buttonGroup.js';
 import kuva from './earth.png';
 import ContactInfo from './contactInfo.js';
 import vuori from './vuori.png';
+import Resource from './resource.js'
 import './App.css';
 
 const BlueBox = ({ children }) => {
@@ -37,6 +38,7 @@ const AppContent = () => {
             <>
               <BlueBox>
                 <h1>Resource</h1>
+                <Resource/>
               </BlueBox>
             </>
           }/>

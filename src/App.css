@@ -155,6 +155,10 @@ h1{
   color: black;
   text-shadow: #000;
   text-align: left;
+}
 
+a {
+  color: white;
+  /* text-decoration: none;  */
 }
 
