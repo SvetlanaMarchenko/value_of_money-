@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, FormControl } from 'react-bootstrap';
 import UniversalCalculator from './universalCalculator.js';
-
+import * as XLSX from 'xlsx';
+import RUB_Inflation from './RUB_Inflation.xlsx'
 import './App.css';
 
 const MainInfoForm = () => {
@@ -11,6 +12,8 @@ const MainInfoForm = () => {
     result: '',
   });
 
+  const [inflationData, setInflationData] = useState([]);
+
   const handleInputChange = (field, value) => {
     setFormData({
       ...formData,
@@ -18,24 +21,31 @@ const MainInfoForm = () => {
     });
   };
 
-  // const handleResultChange = (result) => {
-  //   setFormData({
-  //     ...formData,
-  //     result: result.toFixed(2), // Округляем результат до двух знаков после запятой
-  //   });
-  // };
-
   const handleResultChange = (result) => {
     const formattedResult = result.toFixed(2);
-    // Ваша логика обработки результата
+    // Your result handling logic here
     console.log(formattedResult);
   };
 
-  const myInflationDataArray = [
-    { year: 2021, inflation: 1 },
-    { year: 2022, inflation: 2 },
-    { year: 2023, inflation: 4 },
-  ];
+  useEffect(() => {
+    const fetchInflationData = async () => {
+      try {
+        const response = await fetch(RUB_Inflation);
+        const arrayBuffer = await response.arrayBuffer();
+        const data = new Uint8Array(arrayBuffer);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const parsedData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+        setInflationData(parsedData);
+        console.log("parsedData", parsedData)
+      } catch (error) {
+        console.error('Error fetching inflation data:', error);
+      }
+    };
+
+    fetchInflationData();
+  }, [setInflationData]);
+
   
 
   return (
@@ -66,17 +76,16 @@ const MainInfoForm = () => {
           <FormControl
             placeholder="Get result"
             value={formData.result}
-            readOnly
+            // readOnly
           />
         </Col>
       </Row>
       <Row className="info_form">
         <Col>
-          {/* Используем UniversalCalculator */}
           <UniversalCalculator
             year={parseInt(formData.year)}
             sum={parseFloat(formData.sum)}
-            inflationData={myInflationDataArray}
+            inflationData={inflationData}
             onResultCalculated={handleResultChange}
           />
         </Col>
