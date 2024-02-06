@@ -3,6 +3,7 @@ import { Container, Row, Col, FormControl } from 'react-bootstrap';
 import UniversalCalculator from './universalCalculator.js';
 import * as XLSX from 'xlsx';
 import RUB_Inflation from './RUB_Inflation.xlsx'
+import USD_Inflation from './USD_Inflation.xlsx'
 import './App.css';
 
 const MainInfoForm = () => {
@@ -30,7 +31,7 @@ const MainInfoForm = () => {
   useEffect(() => {
     const fetchInflationData = async () => {
       try {
-        const response = await fetch(RUB_Inflation);
+        const response = await fetch(USD_Inflation);
         const arrayBuffer = await response.arrayBuffer();
         const data = new Uint8Array(arrayBuffer);
         const workbook = XLSX.read(data, { type: 'array' });
