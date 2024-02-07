@@ -1,5 +1,6 @@
 import './RUB_Inflation.xlsx';
 import './USD_Inflation.xlsx'
+import './EUR_Inflation.xlsx'
 
 // const yearNow = new Date().getFullYear();
 const yearNow = 2023
