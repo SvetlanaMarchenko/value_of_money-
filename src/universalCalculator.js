@@ -1,28 +1,32 @@
-import './RUB_Inflation.xlsx';
-import './USD_Inflation.xlsx'
-import './EUR_Inflation.xlsx'
+import React from 'react';
 
-const yearNow = new Date().getFullYear();
+const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => {
+  const yearNow = new Date().getFullYear();
 
-const UniversalCalculator = ({ year, sum, inflationData }) => {
   if ((!year || !sum || !inflationData || inflationData.length === 0) || (year === yearNow)) {
-    return sum; // Если данные отсутствуют или год равен текущему году, возвращаем текущую сумму
+    return sum;
   }
 
   if (year !== yearNow) {
-    let thisYearAdjustedValue = sum; // Начальное значение для первого года
+    let thisYearAdjustedValue = sum;
 
     while (year < yearNow) {
       const inflationRate = inflationData.find(item => item.year === year)?.inflation || 0;
-      console.log(`Инфляция: ${inflationRate}`);
-      console.log(`year: ${year}`);
-      console.log(`thisYearAdjustedValue: ${thisYearAdjustedValue}`);
-      thisYearAdjustedValue = thisYearAdjustedValue * (1 + inflationRate / 100);
-
+      thisYearAdjustedValue *= (1 + inflationRate / 100);
       year += 1;
     }
 
-    return thisYearAdjustedValue.toFixed(2); // Возвращаем итоговое значение после завершения цикла
+    let formattedResult = thisYearAdjustedValue.toFixed(2);
+
+    if (selectedCurrency === 'EUR') {
+      formattedResult += ' EUR';
+    } else if (selectedCurrency === 'USD') {
+      formattedResult += ' USD';
+    } else if (selectedCurrency === 'RUB') {
+      formattedResult += ' RUB';
+    }
+
+    return formattedResult;
   }
 };
 

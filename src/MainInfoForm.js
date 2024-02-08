@@ -1,5 +1,3 @@
-// MainInfoForm.js
-
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, FormControl } from 'react-bootstrap';
 import UniversalCalculator from './universalCalculator.js';
@@ -7,7 +5,7 @@ import * as XLSX from 'xlsx';
 import RUB_Inflation from './RUB_Inflation.xlsx';
 import USD_Inflation from './USD_Inflation.xlsx';
 import EUR_Inflation from './EUR_Inflation.xlsx';
-import CurrencySelector from './buttonGroup.js'; // Предполагается, что этот файл селектора валют экспортирует компонент CurrencySelector
+import CurrencySelector from './buttonGroup.js';
 import './App.css';
 
 const MainInfoForm = () => {
@@ -17,12 +15,17 @@ const MainInfoForm = () => {
   });
 
   const [inflationData, setInflationData] = useState([]);
+  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
 
   const handleInputChange = (field, value) => {
     setFormData({
       ...formData,
       [field]: value,
     });
+  };
+
+  const handleCurrencyChange = (currency) => {
+    setSelectedCurrency(currency);
   };
 
   const fetchInflationData = async (currency) => {
@@ -54,18 +57,13 @@ const MainInfoForm = () => {
     }
   };
 
-  const handleResultChange = (result) => {
-    const formattedResult = result.toFixed(2);
-    console.log(formattedResult);
-  };
-
   useEffect(() => {
-    fetchInflationData(); // Initially fetch inflation data
-  }, []); // Empty dependency array means this effect runs only once after the initial render
+    fetchInflationData(selectedCurrency);
+  }, [selectedCurrency]);
 
   return (
     <Container>
-      <CurrencySelector onSelectCurrency={fetchInflationData} />
+      <CurrencySelector onSelectCurrency={handleCurrencyChange} />
       <Row className="info_form">
         <Col>
           <FormControl
@@ -95,7 +93,7 @@ const MainInfoForm = () => {
             year={parseInt(formData.year)}
             sum={parseFloat(formData.sum)}
             inflationData={inflationData}
-            onResultCalculated={handleResultChange}
+            selectedCurrency={selectedCurrency} // Pass selectedCurrency as prop
           />
         </Col>
       </Row>
