@@ -1,17 +1,19 @@
+// MainInfoForm.js
+
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, FormControl } from 'react-bootstrap';
 import UniversalCalculator from './universalCalculator.js';
 import * as XLSX from 'xlsx';
-import RUB_Inflation from './RUB_Inflation.xlsx'
-import USD_Inflation from './USD_Inflation.xlsx'
-import EUR_Inflation from './EUR_Inflation.xlsx'
+import RUB_Inflation from './RUB_Inflation.xlsx';
+import USD_Inflation from './USD_Inflation.xlsx';
+import EUR_Inflation from './EUR_Inflation.xlsx';
+import CurrencySelector from './buttonGroup.js'; // Предполагается, что этот файл селектора валют экспортирует компонент CurrencySelector
 import './App.css';
 
 const MainInfoForm = () => {
   const [formData, setFormData] = useState({
     year: '',
     sum: '',
-    result: '',
   });
 
   const [inflationData, setInflationData] = useState([]);
@@ -23,35 +25,47 @@ const MainInfoForm = () => {
     });
   };
 
+  const fetchInflationData = async (currency) => {
+    let inflationFile;
+    if (currency === 'EUR') {
+      inflationFile = EUR_Inflation;
+    } else if (currency === 'USD') {
+      inflationFile = USD_Inflation;
+    } else if (currency === 'RUB') {
+      inflationFile = RUB_Inflation;
+    }
+
+    try {
+      const response = await fetch(inflationFile);
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+
+      const arrayBuffer = await response.arrayBuffer();
+      const data = new Uint8Array(arrayBuffer);
+      const workbook = XLSX.read(data, { type: 'array' });
+      const sheetName = workbook.SheetNames[0];
+      const parsedData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+      setInflationData(parsedData);
+      console.log("parsedData", parsedData);
+    } catch (error) {
+      console.error('Error fetching inflation data:', error);
+    }
+  };
+
   const handleResultChange = (result) => {
     const formattedResult = result.toFixed(2);
-    // Your result handling logic here
     console.log(formattedResult);
   };
 
   useEffect(() => {
-    const fetchInflationData = async () => {
-      try {
-        const response = await fetch(EUR_Inflation);
-        const arrayBuffer = await response.arrayBuffer();
-        const data = new Uint8Array(arrayBuffer);
-        const workbook = XLSX.read(data, { type: 'array' });
-        const sheetName = workbook.SheetNames[0];
-        const parsedData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
-        setInflationData(parsedData);
-        console.log("parsedData", parsedData)
-      } catch (error) {
-        console.error('Error fetching inflation data:', error);
-      }
-    };
-
-    fetchInflationData();
-  }, [setInflationData]);
-
-  
+    fetchInflationData(); // Initially fetch inflation data
+  }, []); // Empty dependency array means this effect runs only once after the initial render
 
   return (
     <Container>
+      <CurrencySelector onSelectCurrency={fetchInflationData} />
       <Row className="info_form">
         <Col>
           <FormControl
@@ -74,16 +88,9 @@ const MainInfoForm = () => {
         </Col>
       </Row>
       <Row className="info_form">
-        <Col>
-          <FormControl
-            placeholder="Get result"
-            value={formData.result}
-            // readOnly
-          />
-        </Col>
       </Row>
-      <Row className="info_form">
-        <Col>
+      <Row>
+        <Col className="calculator">
           <UniversalCalculator
             year={parseInt(formData.year)}
             sum={parseFloat(formData.sum)}

@@ -1,14 +1,19 @@
+
 import React, { useState } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 import './App.css';
 
-const CurrencySelector = () => {
+
+
+const CurrencySelector = ({ onSelectCurrency }) => {
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
 
   const handleCurrencyChange = (currency) => {
     setSelectedCurrency(currency);
+    onSelectCurrency(currency); // Call the onSelectCurrency function with the selected currency
   };
 
+  
   return (
     <ButtonGroup className="ButtonGroup">
       <Button
@@ -31,3 +36,4 @@ const CurrencySelector = () => {
 };
 
 export default CurrencySelector;
+

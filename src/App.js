@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import NavbarComponent from './NavbarComponent.js';
 import MainInfoForm from './MainInfoForm.js';
-import CurrencySelector from './buttonGroup.js';
 import kuva from './earth.png';
 import ContactInfo from './contactInfo.js';
 import vuori from './vuori.png';
@@ -29,7 +28,6 @@ const AppContent = () => {
             <>
               <BlueBox>
                 <h1>Value of money now</h1>
-                <CurrencySelector />
                 <MainInfoForm />
               </BlueBox>
             </>
