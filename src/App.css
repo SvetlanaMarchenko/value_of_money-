@@ -38,7 +38,7 @@
 }
 
 .custom_navbar{
-  width: 700px;
+  max-width: 700px;
   flex-direction: column;
   justify-content: center;
   border-radius: 20px;
@@ -46,6 +46,8 @@
   margin: 40px auto 0; 
   height: 43px;
   font-size: calc(10px + 2vmin);
+  width: 100vw;
+  
 }
 
 .nav_part {
@@ -79,17 +81,31 @@
 .blue_box {
   background-color: rgb(24,53,93);
   background: linear-gradient(to bottom right, rgb(65,169,207), rgb(24,53,93));
-  width: 30%;
-  height: 70% ;
-  margin-top: 2%;
-  border-radius: 20px;
+  max-width: 400px;
+  width: 100vw;
+  height: 100vh;
+  max-height: 500px;
+  border-radius: 40px;
+  margin-top: 5%; /* Используем проценты для margin-top */
+
 }
 
-.info_form{
-  margin: 40px 0 0 40px;
-  width: 300px;
-  
+@media screen and (max-width: 600px) {
+  .blue_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
+
+.info_form {
+  margin: 40px 20px 0;
+  display: flex;
+  justify-content: center; /* Выравнивание по центру главной оси */
+  align-items: center; /* Выравнивание по центру поперечной оси */
+}
+
 
 .flex-item{
   background-color: #f0f8ff;
@@ -164,4 +180,9 @@ a {
 
 .calculator{
   color: white;
+}
+
+.navbar-toggler{
+  position: absolute;
+  right: 0.5cm;
 }

@@ -25,6 +25,7 @@ const ContactInfo = () => {
             </p>
             <div className="center-line"></div>
           </div>
+          <div className="center-line"></div>
           
         </Col>
       </Row>
