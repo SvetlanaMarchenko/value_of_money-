@@ -17,6 +17,9 @@ const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => 
     }
 
     while (year < yearNow) {
+      // it's fine to ignore no-loop-func here as we are calling function right away, so no external 
+      // variable changes happen
+      // eslint-disable-next-line no-loop-func
       const inflationRate = inflationData.find(item => item.year === year)?.inflation || 0;
       thisYearAdjustedValue *= (1 + inflationRate / 100);
       year += 1;
