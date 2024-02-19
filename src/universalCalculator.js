@@ -1,13 +1,11 @@
 const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => {
   const yearNow = new Date().getFullYear();
-  console.log(yearNow)
 
-  if (!year || !sum || !inflationData || inflationData.year === undefined) {
-    console.log(inflationData)
+  if (!year || !sum || !inflationData || inflationData.length === 0){
     return 0;
   }
-  
-  if (year === yearNow) {
+
+  if ((!year || !sum || !inflationData || inflationData.length === 0) || (year === yearNow)) {
     return sum;
   }
   
@@ -15,7 +13,9 @@ const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => 
     let thisYearAdjustedValue = sum;
 
     while (year < yearNow) {
+
       const inflationRate = inflationData.find(item => item.year === year)?.inflation || 0;
+      console.log("инфляция: ", inflationRate);
       thisYearAdjustedValue *= (1 + inflationRate / 100);
       year += 1;
     }
@@ -25,11 +25,11 @@ const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => 
     if (selectedCurrency === 'EUR') {
       formattedResult += ' EUR';
     } else if (selectedCurrency === 'USD') {
-      formattedResult = ' $'+ formattedResult;
+      formattedResult += ' USD';
     } else if (selectedCurrency === 'RUB') {
       formattedResult += ' RUB';
     }
-    console.log("результат: ", formattedResult);
+
     return formattedResult;
   }
 };
