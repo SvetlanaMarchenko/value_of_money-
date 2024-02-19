@@ -8,9 +8,9 @@ import vuori from './vuori.png';
 import Resource from './resource.js'
 import './App.css';
 
-const BlueBox = ({ children }) => {
+const BlueBox = ({ children, className }) => {
   return (
-    <div className="blue_box">
+    <div className={`${className}`}>
       {children}
     </div>
   );
@@ -24,18 +24,19 @@ const AppContent = () => {
       <header className="App-header" style={{ backgroundImage: location.pathname === '/contact' ? `url(${vuori})` : `url(${kuva})` }}>
         <NavbarComponent />
         <Routes>
-          <Route path="/" element={
-            <>
-              <BlueBox>
-                <h1>Value of money now</h1>
-                <MainInfoForm />
-              </BlueBox>
-            </>
-          } />
+        <Route path="/" element={
+          <>
+            <BlueBox className="blue_box">
+              <h1>Value of money now</h1>
+              <MainInfoForm />
+            </BlueBox>
+          </>
+        } />
+
           <Route path="/resource" element={
             <>
-              <BlueBox>
-                <h1>Resource</h1>
+              <BlueBox className="blue_box_info">
+                <h2>Resource</h2>
                 <Resource/>
               </BlueBox>
             </>

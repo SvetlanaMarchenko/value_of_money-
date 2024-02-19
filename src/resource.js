@@ -9,7 +9,7 @@ const Resource = () => {
     <Container>
       <Row>
         <Col>
-          <div>
+          <div className='resource'>
             <p>
               1. EUR inflation - 
               <a href="https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=XC" target="_blank" rel="noopener noreferrer"> Inflation, consumer prices (annual %) - Euro area </a>

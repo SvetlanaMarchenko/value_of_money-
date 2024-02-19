@@ -93,7 +93,7 @@ const MainInfoForm = () => {
             year={parseInt(formData.year)}
             sum={parseFloat(formData.sum)}
             inflationData={inflationData}
-            selectedCurrency={selectedCurrency} // Pass selectedCurrency as prop
+            selectedCurrency={selectedCurrency}
           />
         </Col>
       </Row>

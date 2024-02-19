@@ -1,12 +1,16 @@
-import React from 'react';
-
 const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => {
   const yearNow = new Date().getFullYear();
+  console.log(yearNow)
 
-  if ((!year || !sum || !inflationData || inflationData.length === 0) || (year === yearNow)) {
+  if (!year || !sum || !inflationData || inflationData.year === undefined) {
+    console.log(inflationData)
+    return 0;
+  }
+  
+  if (year === yearNow) {
     return sum;
   }
-
+  
   if (year !== yearNow) {
     let thisYearAdjustedValue = sum;
 
@@ -21,11 +25,11 @@ const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => 
     if (selectedCurrency === 'EUR') {
       formattedResult += ' EUR';
     } else if (selectedCurrency === 'USD') {
-      formattedResult += ' USD';
+      formattedResult = ' $'+ formattedResult;
     } else if (selectedCurrency === 'RUB') {
       formattedResult += ' RUB';
     }
-
+    console.log("результат: ", formattedResult);
     return formattedResult;
   }
 };
