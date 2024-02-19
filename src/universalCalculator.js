@@ -1,6 +1,5 @@
-const yearNow = new Date().getFullYear();
-
 const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => {
+  const yearNow = new Date().getFullYear();
   if (!year || !sum || !inflationData || inflationData.length === 0) {
     return 0;
   }
