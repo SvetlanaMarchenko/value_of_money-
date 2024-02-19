@@ -1,21 +1,24 @@
-const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => {
-  const yearNow = new Date().getFullYear();
+const yearNow = new Date().getFullYear();
 
-  if (!year || !sum || !inflationData || inflationData.length === 0){
+const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => {
+  if (!year || !sum || !inflationData || inflationData.length === 0) {
     return 0;
   }
 
-  if ((!year || !sum || !inflationData || inflationData.length === 0) || (year === yearNow)) {
+  if (year === yearNow) {
     return sum;
   }
   
   if (year !== yearNow) {
     let thisYearAdjustedValue = sum;
 
-    while (year < yearNow) {
+    const inflationRate = inflationData.find(item => item.year === year);
+    if (!inflationRate || inflationRate.inflation === 0) {
+      return 0;
+    }
 
+    while (year < yearNow) {
       const inflationRate = inflationData.find(item => item.year === year)?.inflation || 0;
-      console.log("инфляция: ", inflationRate);
       thisYearAdjustedValue *= (1 + inflationRate / 100);
       year += 1;
     }
