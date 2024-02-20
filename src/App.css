@@ -60,19 +60,27 @@
   margin-top: 5%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 3000px){
   .blue_box {
     margin-top: 10%;
     margin-bottom: 5%;
-    max-width: 350px;
+    max-width: 400px;
   }
 }
 
-@media screen and (min-height: 768px) {
+@media screen and (min-height: 1300px) and (min-width: 1000px){
   .blue_box {
     margin-top: 15%;
     margin-bottom: 5%;
-    max-width: 400px;
+    /* max-width: 400px; */
+  }
+}
+
+@media screen and (min-height: 768px) and (max-height: 1300px) {
+  .blue_box {
+    margin-top: 15%;
+    margin-bottom: 5%;
+    max-width: 350px;
   }
 }
 
@@ -87,6 +95,7 @@
   .blue_box {
     margin-top: 5%;
     margin-bottom: 5%;
+    max-width: 400px;
   }
 }
 
