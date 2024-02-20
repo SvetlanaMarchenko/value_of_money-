@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-header {
+.main {
   background-position: center;
   height: 100vh;
   display: flex;
@@ -52,7 +52,7 @@
 .blue_box {
   background-color: rgb(24,53,93);
   background: linear-gradient(to bottom right, rgb(65,169,207), rgb(24,53,93));
-  max-width: 400px;
+  max-width: 350px;
   width: 100vw;
   height: 100vh;
   max-height: 450px;
@@ -64,6 +64,7 @@
   .blue_box {
     margin-top: 10%;
     margin-bottom: 5%;
+    max-width: 350px;
   }
 }
 
@@ -71,6 +72,7 @@
   .blue_box {
     margin-top: 15%;
     margin-bottom: 5%;
+    max-width: 400px;
   }
 }
 

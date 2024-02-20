@@ -21,7 +21,7 @@ const AppContent = () => {
 
   return (
     <div className="App">
-      <header className="App-header" style={{ backgroundImage: location.pathname === '/contact' ? `url(${vuori})` : `url(${kuva})` }}>
+      <div className="main" style={{ backgroundImage: location.pathname === '/contact' ? `url(${vuori})` : `url(${kuva})` }}>
         <NavbarComponent />
         <Routes>
         <Route path="/" element={
@@ -43,7 +43,7 @@ const AppContent = () => {
           }/>
           <Route path="/contact" element={<ContactInfo />} />
         </Routes>
-      </header>
+      </div>
     </div>
   );
 };
