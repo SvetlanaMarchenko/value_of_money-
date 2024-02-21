@@ -16,11 +16,15 @@ const BlueBox = ({ children, className }) => {
   );
 };
 
+const noScrollStyle = {
+  overflow: 'hidden',
+};
+
 const AppContent = () => {
   const location = useLocation();
 
   return (
-    <div className="App">
+    <div className="App" style={location.pathname === '/contact' ? noScrollStyle : null}>
       <div className="main" style={{ backgroundImage: location.pathname === '/contact' ? `url(${vuori})` : `url(${kuva})` }}>
         <NavbarComponent />
         <Routes>
