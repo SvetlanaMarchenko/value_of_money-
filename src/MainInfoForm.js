@@ -18,10 +18,18 @@ const MainInfoForm = () => {
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
 
   const handleInputChange = (field, value) => {
-    setFormData({
-      ...formData,
-      [field]: value,
-    });
+    if (field === 'year') {
+      const filteredValue = value.replace(/[^\d]/g, '').slice(0, 4);
+      setFormData({
+        ...formData,
+        [field]: filteredValue,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [field]: value,
+      });
+    }
   };
 
   const handleCurrencyChange = (currency) => {
