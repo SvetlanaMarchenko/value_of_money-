@@ -27,6 +27,20 @@ body {
   width: 100vw;
 }
 
+@media (max-width: 992px) {
+  .custom_navbar .navbar-collapse {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 993px) {
+  .custom_navbar .navbar-collapse {
+    display: block;
+  }
+}
+
+
 .nav_part {
   width: 200px;
   text-align: center;
