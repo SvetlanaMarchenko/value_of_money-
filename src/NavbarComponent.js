@@ -53,18 +53,17 @@ const NavbarComponent = () => {
 
 
 
-      <Offcanvas show={showOffcanvas}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Menu</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <Nav className="flex-column">
-            <Nav.Link as={Link} to="/" className="nav_part" onClick={() => handleLinkClick('Home')}>Home</Nav.Link>
-            <Nav.Link as={Link} to="/Resource" className="nav_part" onClick={() => handleLinkClick('Resource')}>Resource</Nav.Link>
-            <Nav.Link as={Link} to="/contact" className="nav_part" onClick={() => handleLinkClick('Contact')}>Contact</Nav.Link>
-          </Nav>
-        </Offcanvas.Body>
-      </Offcanvas>
+    <Offcanvas show={showOffcanvas} onHide={() => setShowOffcanvas(false)}>
+      <Offcanvas.Header closeButton>
+      </Offcanvas.Header>
+      <Offcanvas.Body>
+        <Nav className="flex-column">
+          <Nav.Link as={Link} to="/" className="nav_part" onClick={() => handleLinkClick('Home')}>Home</Nav.Link>
+          <Nav.Link as={Link} to="/Resource" className="nav_part" onClick={() => handleLinkClick('Resource')}>Resource</Nav.Link>
+          <Nav.Link as={Link} to="/contact" className="nav_part" onClick={() => handleLinkClick('Contact')}>Contact</Nav.Link>
+        </Nav>
+      </Offcanvas.Body>
+    </Offcanvas>
     </>
   );
 };

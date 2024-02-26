@@ -39,11 +39,12 @@ body {
   text-decoration: none;
 }
 
-/* @media screen and (max-width: 620px) {
+@media screen and (max-width: 992px) {
   .nav_part {
-    display: none;
+    justify-content: flex-start;
+    margin-left: 30px;
   }
-} */
+}
 
 .navbar-brand{
   display: flex;
@@ -301,3 +302,9 @@ a {
 p{
   color: white;
 }
+
+.offcanvas-header{
+  margin-left: 300px;
+  padding-top: 20px;
+}
+
