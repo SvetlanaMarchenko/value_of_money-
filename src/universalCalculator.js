@@ -17,7 +17,7 @@ const UniversalCalculator = ({ year, sum, inflationData, selectedCurrency }) => 
 
     const inflationRate = inflationData.find(item => item.year === year);
     if (!inflationRate || inflationRate.inflation === 0) {
-      return `Uppppssss... No data for ${year} year`;
+      return `Uppppssss... No data for year ${year} `;
     }
 
     while (year < yearNow) {

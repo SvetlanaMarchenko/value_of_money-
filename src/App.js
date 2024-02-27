@@ -5,7 +5,7 @@ import MainInfoForm from './MainInfoForm.js';
 import kuva from './earth.png';
 import ContactInfo from './contactInfo.js';
 import vuori from './vuori.png';
-import Resource from './resource.js'
+import Resources from './resource.js'
 import './App.css';
 
 const BlueBox = ({ children, className }) => {
@@ -33,11 +33,11 @@ const AppContent = () => {
           </>
         } />
 
-          <Route path="/resource" element={
+          <Route path="/resources" element={
             <>
               <BlueBox className="blue_box_info">
-                <h2>Resource</h2>
-                <Resource/>
+                <h2>Resources</h2>
+                <Resources/>
               </BlueBox>
             </>
           }/>

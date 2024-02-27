@@ -4,12 +4,12 @@ import './RUB_Inflation.xlsx';
 import './USD_Inflation.xlsx'
 import './EUR_Inflation.xlsx'
 
-const Resource = () => {
+const Resources = () => {
   return (
     <Container>
       <Row>
         <Col>
-          <div className='resource'>
+          <div className='resources'>
             <p>
               1. EUR inflation - 
               <a href="https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=XC" target="_blank" rel="noopener noreferrer"> Inflation, consumer prices (annual %) - Euro area </a>
@@ -29,4 +29,4 @@ const Resource = () => {
   );
 };
 
-export default Resource;
+export default Resources;

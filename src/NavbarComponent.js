@@ -22,7 +22,7 @@ const NavbarComponent = () => {
           <Navbar.Brand>{selectedNavItem}</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link as={Link} to="/" className="nav_part">Home</Nav.Link>
-            <Nav.Link as={Link} to="/Resource" className="nav_part">Resource</Nav.Link>
+            <Nav.Link as={Link} to="/Resources" className="nav_part">Resources</Nav.Link>
             <Nav.Link as={Link} to="/contact" className="nav_part">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
@@ -33,7 +33,7 @@ const NavbarComponent = () => {
         <Offcanvas.Body>
           <Nav className="flex-column">
             <Nav.Link as={Link} to="/" className="nav_part" onClick={() => handleLinkClick('Home')}>Home</Nav.Link>
-            <Nav.Link as={Link} to="/Resource" className="nav_part" onClick={() => handleLinkClick('Resource')}>Resource</Nav.Link>
+            <Nav.Link as={Link} to="/Resources" className="nav_part" onClick={() => handleLinkClick('Resources')}>Resources</Nav.Link>
             <Nav.Link as={Link} to="/contact" className="nav_part" onClick={() => handleLinkClick('Contact')}>Contact</Nav.Link>
           </Nav>
         </Offcanvas.Body>
