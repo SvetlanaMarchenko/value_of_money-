@@ -6,6 +6,7 @@ import kuva from './earth.png';
 import ContactInfo from './contactInfo.js';
 import vuori from './vuori.png';
 import Resources from './resource.js'
+import { Helmet } from 'react-helmet';
 import './App.css';
 
 const BlueBox = ({ children, className }) => {
@@ -20,33 +21,39 @@ const AppContent = () => {
   const location = useLocation();
 
   return (
-    <div className="App">
-      <div className="main" style={{ backgroundImage: location.pathname === '/contact' ? `url(${vuori})` : `url(${kuva})` }}>
-        <NavbarComponent />
-        <Routes>
-        <Route path="/" element={
-          <>
-            <BlueBox className="blue_box">
-              <h1>Value of money now</h1>
-              <MainInfoForm />
-            </BlueBox>
-          </>
-        } />
-
-          <Route path="/resources" element={
-            <>
-              <BlueBox className="blue_box_info">
-                <h2>Resources</h2>
-                <Resources/>
-              </BlueBox>
-            </>
-          }/>
-          <Route path="/contact" element={<ContactInfo />} />
-        </Routes>
+    <>
+      <Helmet>
+        {/* <link rel="icon" type="image/png" href={logo} sizes="16x16" /> */}
+        <title>Value of money now</title> 
+      </Helmet>
+      <div className="App">
+        <div className="main" style={{ backgroundImage: location.pathname === '/contact' ? `url(${vuori})` : `url(${kuva})` }}>
+          <NavbarComponent />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <BlueBox className="blue_box">
+                  <h1>Value of money now</h1>
+                  <MainInfoForm />
+                </BlueBox>
+              </>
+            } />
+            <Route path="/resources" element={
+              <>
+                <BlueBox className="blue_box_info">
+                  <h2>Resources</h2>
+                  <Resources/>
+                </BlueBox>
+              </>
+            }/>
+            <Route path="/contact" element={<ContactInfo />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
+
 
 const App = () => {
   return (
