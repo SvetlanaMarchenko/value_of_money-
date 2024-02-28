@@ -6,7 +6,6 @@ import kuva from './earth.png';
 import ContactInfo from './contactInfo.js';
 import vuori from './vuori.png';
 import Resources from './resource.js'
-import { Helmet } from 'react-helmet';
 import './App.css';
 
 const BlueBox = ({ children, className }) => {
@@ -22,10 +21,6 @@ const AppContent = () => {
 
   return (
     <>
-      <Helmet>
-        {/* <link rel="icon" type="image/png" href={logo} sizes="16x16" /> */}
-        <title>Value of money now</title> 
-      </Helmet>
       <div className="App">
         <div className="main" style={{ backgroundImage: location.pathname === '/contact' ? `url(${vuori})` : `url(${kuva})` }}>
           <NavbarComponent />

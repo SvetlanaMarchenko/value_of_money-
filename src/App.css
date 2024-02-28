@@ -7,7 +7,7 @@ body {
 }
 
 @media (max-height: 450px) {
-  .body {
+  body {
     overflow: scroll;
   }
 }
