@@ -9,8 +9,21 @@ body {
 @media (max-height: 450px) {
   body {
     overflow: scroll;
+    background-color: azure;
   }
 }
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Выберите нужную высоту */
+  background-color: azure; /* Цвет фона */
+  z-index: -1; /* Чтобы псевдоэлемент находился за содержимым */
+}
+
 
 .main {
   background-position: center;
