@@ -6,6 +6,7 @@ import kuva from './earth.png';
 import ContactInfo from './contactInfo.js';
 import vuori from './vuori.png';
 import Resources from './resource.js'
+import InfoModal from './infoModal.js';
 import './App.css';
 
 const BlueBox = ({ children, className }) => {
@@ -28,7 +29,9 @@ const AppContent = () => {
             <Route path="/" element={
               <>
                 <BlueBox className="blue_box">
-                  <h1>Value of money now</h1>
+                  <h1>Value of money now
+                  <InfoModal />
+                  </h1>
                   <MainInfoForm />
                 </BlueBox>
               </>
