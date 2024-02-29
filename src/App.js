@@ -29,8 +29,8 @@ const AppContent = () => {
             <Route path="/" element={
               <>
                 <BlueBox className="blue_box">
+                <InfoModal />
                   <h1>Value of money now
-                  <InfoModal />
                   </h1>
                   <MainInfoForm />
                 </BlueBox>

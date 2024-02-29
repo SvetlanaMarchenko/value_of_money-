@@ -8,14 +8,13 @@ const InfoModal = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
+    <div className="d-flex align-items-center">
+      <Button className="question mr-2" variant="primary" onClick={handleShow}>
         ?
       </Button>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>About what</Modal.Title>
+          <Modal.Title>What is this WEB about?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           The Inflation Calculator measures the currency's buying power over time.
@@ -26,7 +25,7 @@ const InfoModal = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 };
 
