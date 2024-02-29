@@ -17,7 +17,7 @@ const InfoModal = () => {
           <Modal.Title>What is this WEB about?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          The Inflation Calculator measures the currency's buying power over time.
+        This is an INFLATION CALCULATOR. It can be used to measure the purchasing power of a currency over time
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

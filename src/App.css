@@ -404,7 +404,13 @@ p{
 
 .d-flex{
   justify-content: flex-end;
-  margin: 5px 25px 0 0;
+  margin: 15px 25px 0 0;
+}
+
+@media (max-height: 450px) {
+  .d-flex {
+    margin: 5px 25px 0 0;
+  }
 }
 
 

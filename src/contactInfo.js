@@ -8,13 +8,13 @@ const ContactInfo = () => {
         <Col>
           <div className="center-line">
           <div className="center-line_1">
-            MARCHENKO SVETLANA
+          SVETLANA MARCHENKO 
           </div>
           </div>
           <div>
             <h1 className='introducing'>ABOUT ME</h1>
             <p className='name_direction'>
-              My name is   <a className="custom-link" href="https://www.linkedin.com/in/svetlana-marchenko-6598b8a9/" target="_blank" rel="noopener noreferrer">Svetlana Marchenko</a> and this is my first web project. And any IT project.
+              My name is   <a className="custom-link" href="https://www.linkedin.com/in/svetlana-marchenko-6598b8a9/" target="_blank" rel="noopener noreferrer">Svetlana Marchenko</a> and this is my first web project.
               If you need a Junior full-stack developer or you have practice for me - here is my page on <a className="custom-link" href="https://www.linkedin.com/in/svetlana-marchenko-6598b8a9/" target="_blank" rel="noopener noreferrer">LinkedIn:</a>
               <a className="custom-link" href="https://www.linkedin.com/in/svetlana-marchenko-6598b8a9/" target="_blank" rel="noopener noreferrer">
                 LinkedIn Profile
