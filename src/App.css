@@ -9,9 +9,10 @@ body {
 @media (max-height: 450px) {
   body {
     overflow: scroll;
+    background-color: #bce0e3;
   }
 }
-
+/* 
 body::after {
   content: '';
   position: fixed;
@@ -19,9 +20,9 @@ body::after {
   left: 0;
   width: 100%;
   height: 100px;
-  background-color: #bce0e3;
+  background-color: azure;
   z-index: -1;
-}
+} */
 
 
 .main {
