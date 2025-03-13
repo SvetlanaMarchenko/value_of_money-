@@ -3,7 +3,7 @@ import { Container, Row, Col, FormControl } from 'react-bootstrap';
 import UniversalCalculator from './universalCalculator.js';
 import * as XLSX from 'xlsx';
 import RUB_Inflation from './RUB_Inflation.xlsx';
-import USD_Inflation from './USD_Inflation.xlsx';
+import USD_Inflation from './USD_Inflation.csv';
 import EUR_Inflation from './EUR_Inflation.xlsx';
 import CurrencySelector from './buttonGroup.js';
 import './App.css';
