@@ -16,7 +16,7 @@ const Resources = () => {
             </p>
             <p>
               2. USD inflation - 
-              <a href="https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=XC" target="_blank" rel="noopener noreferrer"> Inflation, consumer prices (annual %) - Euro area </a>
+              <a href="https://www.usinflationcalculator.com/inflation/current-inflation-rates/" target="_blank" rel="noopener noreferrer"> Inflation, consumer prices (annual %) - USD </a>
             </p>
             <p>
               3. RUB inflation - 
